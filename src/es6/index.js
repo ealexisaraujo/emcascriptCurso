@@ -88,3 +88,58 @@ console.log(education2);
   console.log(`globalConst -> ${globalConst}`);
 }
 console.log(`globalVar -> ${globalVar}`);
+
+//Parametros en objetos
+let name = 'oscar';
+let age = 32;
+
+//es5
+obj = { name: name, age: age };
+//es6
+obj2 = { name, age };
+console.log(obj2);
+
+//Arrow functions
+const names = [
+  {
+    name: 'Oscar',
+    age: 37,
+  },
+  {
+    name: 'Alexis',
+    age: 27,
+  },
+];
+
+//Iteraccion en un array en es5
+let listOfNames = names.map(function(item) {
+  console.log(item.name);
+});
+
+//Iteraccion en un array en es6
+let listOfNames2 = names.map(item => {
+  console.log(item.name);
+});
+
+const listOfNames3 = (name, age, country) => {...}
+
+const listOfNames4 = name => {...}
+
+const square = num => num * num;
+
+//Promesas para trabajar con el asincronismo
+const helloPromise = foo => {
+  return new Promise((resolve, reject) => {
+    if (foo) {
+      resolve('Hey!');
+    } else {
+      reject('Upss!');
+    }
+  });
+};
+
+const foo = false;
+helloPromise(foo)
+  .then(response => console.log('response -> ', response))
+  .then(() => console.log('message -> Hello World!'))
+  .catch(error => console.log('error -> ', error));

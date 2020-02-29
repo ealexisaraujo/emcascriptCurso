@@ -19,7 +19,7 @@ newFunction2();
 newFunction2('Ricardo', 22, 'Bogotá');
 
 //CONCATENACION
-let hello = 'Hello';
+export let hello = 'Hello';
 let world = 'Word';
 let epicPhrase = hello + ' ' + world;
 console.log(epicPhrase);
@@ -138,8 +138,44 @@ const helloPromise = foo => {
   });
 };
 
-const foo = false;
+const foo = true;
 helloPromise(foo)
   .then(response => console.log('response -> ', response))
   .then(() => console.log('message -> Hello World!'))
   .catch(error => console.log('error -> ', error));
+
+/**
+* Classes
+*/
+class Calculator{
+  constructor() {
+    this.valueA = 0;
+    this.valueB = 0;
+  }
+
+  sum(valueA, valueB) {
+    this.valueA = valueA;
+    this.valueB = valueB;
+    return this.valueA + this.valueB;
+  }
+}
+
+const calc = new Calculator();
+console.log('Calc Result -> ', calc.sum(2, 3));
+
+/**
+ * Generators
+ */
+function* helloWorld() {
+  if (true) {
+    yield'Hello, ';
+  }
+
+  if (true) {
+    yield'World!';
+  }
+}
+const generatorHello = helloWorld();
+console.log('generatorHello first call -> ', generatorHello.next().value);
+console.log('generatorHello second call -> ', generatorHello.next().value);
+console.log('generatorHello third call -> ', generatorHello.next().value);
